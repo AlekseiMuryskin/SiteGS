@@ -1,0 +1,59 @@
+{% extends 'gsras/bases/b_reqform.html' %}
+{% load static %}
+{%block title%}Список заявок на данные {%endblock title%}
+{% block table_reqs %}
+<style>
+  .pointr th
+  {
+    cursor:pointer;
+  }
+</style>
+<script type="text/javascript" src="{% static '/tabsorter/js/jquery.tablesorter.js' %}"></script>
+<script src="{% static '/gsras/dtRequests.js' %}"></script>
+<script src="{% static '/gsras/csvExport.mod1251.js' %}"></script>
+<div class = 'container-md'>
+  <table class="table  table-striped table-bordered tablesorter cursor-pointer" id = 'dtRequests' name ='dtRequests'>
+    <thead >
+      <tr class="table-primary pointr">
+        <th class = 'text-center'>Дата</th>
+        <th class = 'text-center'>Организация</th>
+        <th class = 'text-center'>Руководитель</th>
+        <th class = 'text-center'>Куратор</th>
+        <th class = 'text-center'>Телефон</th>
+        <th class = 'text-center'>Электронная почта</th>
+        <th class = 'text-center'>Тип запроса</th>
+        <th class = 'text-center'>Файл заявки</th>
+        <th class = 'text-center'>Комментарий</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in reqs %}
+      <tr>
+        <th>{{ item.date_time_create | date:"Y-m-d H:i:s"}}</th>
+        <td>{{item.requester_organization__name}}</td>
+        <td>{{item.firstname | make_list | first}}. {{item.lastname | make_list | first}}. {{item.surname}}</td>
+        <td>{{item.data_requester_personal__firstname | make_list | first}}. {{item.data_requester_personal__lastname | make_list | first}}. {{item.data_requester_personal__surname}}</td>
+        <td>{{item.phone}}</td>
+        <td><a href="mailto:{{ item.data_requester__email }}" target="_blank" class="btn btn-primary w-100">{{ item.data_requester__email }}</a></td>
+        <td>{{ item.type_data }}</td>
+        <td><a href = '/media/{{ item.request_file }}'>{{ item.request_file }}</a></td>
+        <td>{{ item.commentary_to_file }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div  class="container col-12">
+  <div class = 'row'>
+    <div class = 'col'>
+      <a href ='/' class = 'btn btn-primary'>На форму заявки</a>
+    </div>
+    <div class = 'col'>
+      <button id="export" class="btn btn-primary">Экспорт в CSV</button>
+    </div>
+  </div>
+</div>
+{% endblock table_reqs %}
+
+
+

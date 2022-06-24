@@ -1,0 +1,28 @@
+{% block personal_data_input %}
+<div class="row mt-3 mb-3">
+    <div class="col">
+        <h5>
+          <small class="text-muted">Контактное лицо</small>
+        </h5>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-4 mt-1">
+        {{contact_person.contacts_surname}}
+    </div>
+    <div class="col-4 mt-1">
+        {{contact_person.contacts_firstname}}
+    </div>
+    <div class="col-4 mt-1">
+        {{contact_person.contacts_secname}}
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-4 mt-1">
+        {{contact_person.contacts_phone}}
+    </div>
+    <div class="col-8 mt-1">
+        {{contact_person.contacts_email}}
+    </div>
+</div>
+{% endblock personal_data_input %}

@@ -1,0 +1,41 @@
+{% extends 'gsras/bases/b_reqform.html' %}
+{%block title %}Форма предоставления данных{%endblock title%}
+{% load static %}
+{% block req_from%}
+<script src="{% static '/gsras/form.js' %}"></script>
+<form method="POST" enctype="multipart/form-data">
+    {{correct | safe}}
+    {% csrf_token %}
+    <div  class="container border col-12 pb-3">
+        {% include 'gsras/organization.html' %}
+    </div>
+    <div  class="container border mt-3 col-12">
+        <div class="form-row mt-3">
+            {% include "gsras/personal_input.html" %}
+        </div>
+    </div>
+    <div  class="container border mt-3 col-12">
+        {% include "gsras/data_need.html" %}
+    </div>
+    <div class="container mt-3 col-12">
+                <medium class="text-muted">Я не робот</medium>
+                {{ captcha.captcha }}
+            </div>
+    <div  class="container mt-3 col-12">
+        <div class="form-row mt-3">
+            <div class="col-8">
+              <input type = 'submit' class = 'btn btn-outline-primary' name = 'SendReq' value = 'Отправить' >
+            </div>
+        </div>
+    </div>
+    {{correct | safe}}
+    <div  class="container mt-3 col-12">
+        <div class="form-row mt-3">
+            <div class="col-8">
+                {{ toReqLink | safe }}
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock req_from %}
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+    <body>
+    {% include "gsras/header.html" %}
+    {% include "gsras/navigation.html" %}
+    {% block carucel %}{% endblock carucel%}
+    <div class = 'container-md mb-3'>
+        {% block req_from %}{% endblock req_from %}
+        {% block table_reqs%}{% endblock table_reqs%}
+        {% block blog%}{% endblock blog%}
+        {% block structure%}{% endblock structure%}
+        {%block fnews%}{% endblock fnews %}
+        <!-- SAV 10 -->
+
+    </div>
+    {% include "gsras/footer.html" %}
+    </body>
+</html>

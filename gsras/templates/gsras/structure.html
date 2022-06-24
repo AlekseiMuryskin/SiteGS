@@ -1,0 +1,41 @@
+{% extends 'gsras/bases/max_divs.html' %}
+{%block title %}ФИЦ ЕГС РАН{% endblock title %}
+{% load static %}
+
+{% block structure %}
+<script src="{% static '/chart/jquery.orgchart.js' %}"></script>
+<link href=" {% static '/gsras/chart_org.css' %}" media="all" rel="stylesheet" type="text/css"/>
+
+<script  type="text/javascript">
+  var testData = [
+        {id: 1, name: '<a href = "#" nowrap>ЦО ФИЦ ЕГС РАН</a>', parent: 0 , image:"http://172.20.2.6/static/img/logos/logos.png"},
+        {id: 2, name: 'Учёный совет', parent: 1 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 3, name: 'Директор', parent: 1 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 4, name: 'Научный руководитель', parent: 1 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 6, name: 'Учёный секретарь', parent: 3 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 7, name: 'Заместители директора по научный работе', parent: 3 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 8, name: 'Филиалы', parent: 3 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 9, name: 'Главный инженер', parent: 3 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 10, name: 'Филиалы', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 11, name: 'Камчатский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 12, name: 'Сахалинский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 13, name: 'Магаданский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 14, name: 'Дагестанский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 15, name: 'Северо-Осетинский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 16, name: 'Кольский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 17, name: 'Алкае-Саянский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 18, name: 'Байкальский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 19, name: 'Бурятский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 20, name: 'Сейсмологический', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 21, name: 'Сибирский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+        {id: 22, name: 'Якутский', parent: 8 , image:"http://www.gsras.ru/new/struct/VYuA.jpg"},
+    ];
+    $(function(){
+        org_chart = $('#orgChart').orgChart({
+            data: testData,
+
+        });
+    });
+</script>
+<div id="orgChart"></div>
+{% endblock structure %}

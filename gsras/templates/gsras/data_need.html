@@ -1,0 +1,27 @@
+<div class="form-row  mt-3">
+        <div class="col">
+            <div class="btn-group" role="group" aria-label="">
+                {% for radio in data_need.choice_data_type%}
+                {{radio.tag }}
+                <label for="id_choice_data_type_{{ forloop.counter0 }}" class = 'btn btn-outline-primary'>{{ radio.choice_label }}</label>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+<div class="form-row mt-3">
+    <div class="form-row mt-3 mb-3">
+        <div class="col">
+            <h5><small class="text-muted" id = 'switch_text'> Вложение со списком запрашиваемых станций </small></h5>
+        </div>
+    </div>
+    <div class="form-row mb-3">
+        <div class="col mt-1">
+            {{data_need.add_file}}
+        </div>
+    </div>
+    <div class="form-row mb-3">
+        <div class="col mt-1">
+             {{data_need.req_comment}}
+        </div>
+    </div>
+</div>

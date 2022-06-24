@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+    <body>
+    {% include "gsras/header.html" %}
+    {% include "gsras/navigation.html" %}
+    <div>
+        {% block structure%}{% endblock structure %}
+    </div>
+    {% include "gsras/footer.html" %}
+    </body>
+</html>

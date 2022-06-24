@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="gempa GmbH">
+  <title>SeisComP FDSNWS - DataSelect</title>
+   <!-- Bootstrap CSS (jsDelivr CDN) -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <!-- Bootstrap Bundle JS (jsDelivr CDN) -->
+   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+  <script type="text/javascript">
+    A_TCALCONF['format'] = 'Y-m-dT00:00:00';
+    window.onload = fdsnwsInitQueryForm;
+  </script>
+</head>
+<body>
+  {% include "gsras/header.html" %}
+  {% include "gsras/navigation.html" %}
+  <div style="padding-left:10%; padding-bottom:2%;">
+  <h1>SeisComP FDSNWS DataSelect</h1>
+    <form id="query-form" action="" method="POST">
+    <fieldset>
+      <legend>Time constraints</legend>
+      <table class="builder">
+        <tbody>
+          <tr>
+            <td>Start Time</td>
+            <td><input type="date" size="10"  maxlength="26" name="startdate" value="" class="tcal"/></td>
+            <td><input type="time" size="10"  maxlength="26" name="starttime" value="" class="tcal" step="1"/></td>
+          </tr>
+          <tr>
+            <td>End Time</td>
+            <td><input type="date" size="10" maxlength="26" name="enddate" value="" class="tcal"/></td>
+            <td><input type="time" size="10" maxlength="26" name="endtime" value="" class="tcal" step="1"/></td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend>Channel constraints</legend>
+        <table class="builder">
+          <tbody>
+            <tr>
+              <td>Network</td>
+              <td><input type="text" size="10" name="network" value="" placeholder="AB,C?" /></td>
+            </tr>
+            <tr>
+              <td>Station</td>
+              <td><input type="text" size="10" name="station" value="" placeholder="ABC,D*" /></td>
+            </tr>
+            <tr>
+              <td>Location</td>
+              <td><input type="text" size="10" name="location" value="" placeholder="00" /></td>
+            </tr>
+            <tr>
+              <td>Channel</td>
+              <td><input type="text" size="10" name="channel" value="" placeholder="BH?" /></td>
+            </tr>
+          </tbody>
+        </table>
+    </fieldset>
+    <fieldset>
+      <legend>Service specific constraints</legend>
+      <table class="builder">
+        <tbody>
+          <tr>
+            <td>Quality</td>
+            <td><select name="quality" disabled="disabled"><option value="B">B</option></select></td>
+          </tr>
+          <tr>
+            <td>Minimum Length (s)</td>
+            <td><input type="text" size="10" name="minimumlength" value="0.0" disabled="disabled"/></td>
+          </tr>
+          <tr>
+            <td>Longest Only</td>
+            <td><input type="checkbox" name="longestonly" value="false" disabled="disabled"/></td>
+          </tr>
+          <tr>
+            <td>Authentication</td>
+            <td><input type="checkbox" name="queryauth" value="queryauth"/></td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend>Output control</legend>
+      <table class="builder">
+        <tbody>
+          <tr>
+            <td>Format</td>
+            <td><select name="format">
+              <option value="miniseed">miniseed</option>
+              <option value="css3">CSS3</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>No Data 404</td>
+            <td><input type="checkbox" name="nodata" value="404" checked="checked"/></td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  </div>
+  {% include "gsras/footer.html" %}
+</body>
+</html>

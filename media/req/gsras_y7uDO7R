@@ -1,0 +1,124 @@
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href = "/static/bootstrap5/css/bootstrap.min.css" />
+<script type="module" src="/static/bootstrap5/js/bootstrap.min.js"></script>
+<script src="/static/jquery/jquery-3.6.0.min.js"></script>
+<script src="/static/gsras/form.js"></script>
+<link rel="shortcut icon" type="image/png" href="/static/img/favicon/favicon.ico">
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>ЦО ФИЦ ЕГС РАН</h1>
+  <p>ЕДИНАЯ ГЕОФИЗИЧЕСКАЯ СЛУЖБА РОССИЙСОЙ АКАДЕМИИ НАУК</p>
+</div>
+
+<form class = 'container-md  mt-5 pb-3'method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken" value="rIIQ2MA2I3n9IaQayCSXlFqx87omt9G3uOhsq105n8VNSbS0uGBv1VLUp3MRxqNY">
+    <div class="form-row mt-3">
+        <div class="col-8">
+          <input type="text" class="form-control" placeholder="Организация" name="organization">
+        </div>
+    </div>
+    <div class="form-row mt-3">
+        <div class="col-8">
+            <div  class="container border">
+                <div class="row mt-3 mb-3">
+                    <div class="col">
+                        <h5><small class="text-muted">Руководитель организации</small></h5>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Фамилия" name="boss_surname">
+                    </div>
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Имя" name="boss_firstname">
+                    </div>
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Отчество" name="boss_secname">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mt-3">
+        <div class="col-8">
+            <div class="container border">
+                <div class="row mt-3 mb-3">
+                    <div class="col">
+                        <h5>
+                          <small class="text-muted">Контактное лицо</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Фамилия *" name="contacts_surname">
+                    </div>
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Имя *" name="contacts_firstname">
+                    </div>
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Отчество *" name="contacts_secname">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-4 mt-1">
+                        <input type="text" class="form-control" placeholder="Телефон *" name="contacts_phone">
+                    </div>
+                    <div class="col-8 mt-1">
+                        <input type="email" class="form-control" placeholder="Email *" name="contacts_email">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mt-3">
+        <div class="col-8">
+          <input type="text" class="form-control" placeholder="Основание для запроса данных *" name="req_basis">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="btn-group" role="group" aria-label="">
+                <input type="radio" class="btn-check" name="data-type" id="retro" value="retr" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="retro">Ретроспективно</label>
+                <input type="radio" class="btn-check" name="data-type" id="realtime" autocomplete="off" value="real">
+                <label class="btn btn-outline-primary" for="realtime">Реальное время</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mt-3">
+        <div class="col-8 mt-3">
+            <div  class="container border">
+                <div class="row mt-3 mb-3">
+                    <div class="col">
+                        <h5><small class="text-muted" id = 'switch-text'>Вложение со списком запрашиваемых станций и временных интервалов *</small></h5>
+                    </div>
+                </div>
+                    <div class="row mb-3">
+                        <div class="col mt-1">
+                            <input type = 'file' class="form-control" name = 'add_file' accept=".txt, .csv, .pdf, .doc, .docx, .xlsx, .xls, .odt, .ods"/>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col mt-1">
+                             <input type = 'text' class="form-control" name = 'req_comment' placeholder="Комментарий к вложению"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-row mt-3">
+        <div class="col-8">
+          <input type = 'submit' class = 'btn btn-outline-primary' name = 'SendReq' value = 'Отправить' >
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h5>Подвал</h5>
+</div>
