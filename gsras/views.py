@@ -10,6 +10,7 @@ import zipfile
 from obspy import UTCDateTime
 from obspy.clients.fdsn import Client
 import os, sys
+from django.views.decorators.csrf import csrf_exempt
 
 def upload_file(request, name_input_field):
     if name_input_field in request.FILES:
@@ -171,6 +172,7 @@ def ListFilterW(lst):
 def main_page(request):
     return render(request,'gsras/main_page.html',{})
 
+@csrf_exempt
 def dataselect(request):
     if request.method =="POST":
         try:
@@ -236,6 +238,7 @@ def dataselect(request):
             return render(request,'fdsnws/error.html',{"message":"Error! введите корректные данные"})
     return render(request,'gsras/dataselect.html',{})
 
+@csrf_exempt
 def station(request):
     if request.method == "POST":
         try:
